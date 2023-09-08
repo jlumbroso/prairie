@@ -3,6 +3,40 @@ import os
 import docker
 import loguru
 
+def set_docker_host():
+    """
+    Set the DOCKER_HOST environment variable based on the operating system if it's not already set.
+    """
+    if not os.environ.get('DOCKER_HOST'):
+        platform = os.sys.platform
+        if platform == "darwin":  # macOS
+            os.environ['DOCKER_HOST'] = "unix://{}".format(os.path.expanduser("~/.docker/run/docker.sock"))
+            return True
+        
+    return False
+
+def log_docker_env():
+    docker_host = os.environ.get('DOCKER_HOST')
+    docker_tls_verify = os.environ.get('DOCKER_TLS_VERIFY')
+    docker_cert_path = os.environ.get('DOCKER_CERT_PATH')
+    docker_api_version = os.environ.get('DOCKER_API_VERSION')
+    docker_timeout = os.environ.get('DOCKER_TIMEOUT', 60)
+    docker_username = os.environ.get('DOCKER_USERNAME')
+    # Be cautious with logging sensitive information
+    # docker_password = os.environ.get('DOCKER_PASSWORD')
+
+    loguru.logger.info(f"DOCKER_HOST: {docker_host}")
+    loguru.logger.info(f"DOCKER_TLS_VERIFY: {docker_tls_verify}")
+    loguru.logger.info(f"DOCKER_CERT_PATH: {docker_cert_path}")
+    loguru.logger.info(f"DOCKER_API_VERSION: {docker_api_version}")
+    loguru.logger.info(f"DOCKER_TIMEOUT: {docker_timeout}")
+    loguru.logger.info(f"DOCKER_USERNAME: {docker_username}")
+    # loguru.logger.info(f"DOCKER_PASSWORD: {docker_password}")  # Avoid logging this
+
+    # If you want to see logs in the console too
+    loguru.logger.info("This will be displayed in the console and saved to the logfile.")
+
+
 def run_docker_container(
     image_name: str,
     command: str = None,
@@ -76,6 +110,9 @@ def run_prairielearn_container(
     ports = {str(port): port}
     volumes = {}
     environment = {}
+
+    # Set docker socket
+    volumes["/var/run/docker.sock"] = {'bind': '/var/run/docker.sock', 'mode': 'rw'}
 
     # If job_dir is provided, set it up
     if job_dir:
