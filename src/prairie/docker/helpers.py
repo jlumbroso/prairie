@@ -16,23 +16,15 @@ def run_docker_container(
 ) -> docker.models.containers.Container:
     """
     Run a Docker container using the specified parameters.
-
-    :param image_name: Name of the Docker image to run.
-    :param command: Command to run inside the container.
-    :param ports: Port mappings.
-    :param volumes: Volume mappings.
-    :param environment: Environment variables.
-    :param remove: Automatically remove the container when it exits.
-    :param tty: Allocate a pseudo-TTY.
-    :param stdin_open: Keep STDIN open even if not attached.
-    :param detach: Run in the background.
-    :return: A Container object.
     """
+    loguru.logger.info(f"Attempting to run Docker container with image: {image_name}")
+    
     # Create a Docker client
     client = docker.from_env()
 
     # Pull the image
     client.images.pull(image_name)
+    loguru.logger.debug(f"Pulled image: {image_name}")
 
     # Run the container
     container = client.containers.run(
@@ -47,6 +39,7 @@ def run_docker_container(
         detach=detach
     )
 
+    loguru.logger.info(f"Container with ID {container.id} started successfully.")
     return container
 
 def run_prairielearn_container(
@@ -59,6 +52,8 @@ def run_prairielearn_container(
     """
     Run a PrairieLearn container with specific configurations.
     """
+    loguru.logger.info("Attempting to run a PrairieLearn container with specific configurations.")
+    
     # Resolve user's home directory
     home_dir = os.path.expanduser("~")
 
@@ -113,4 +108,5 @@ def run_prairielearn_container(
         environment=environment
     )
 
+    loguru.logger.info(f"PrairieLearn container with ID {container.id} started successfully.")
     return container
