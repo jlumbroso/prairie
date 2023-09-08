@@ -31,17 +31,12 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y python3-dev python3-setuptools
-          sudo apt-get install -y libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev \
-            libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk \
-            libharfbuzz-dev libfribidi-dev libxcb1-dev
-          sudo apt-get install -y build-essential libsqlite3-dev \
-            libpng-dev libjpeg-dev
 
       - name: Setup Python & Poetry and install project
         run: poetry install
 
       - name: Run pytest
-        run: poetry run python -m pytest --cov=slacktivate --cov-branch tests/
+        run: poetry run python -m pytest --cov=prairie --cov-branch tests/
 
       - name: Run codecov to upload report to site
         run: poetry run codecov -t ${{ secrets.CODECOV_TOKEN }}
