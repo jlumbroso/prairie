@@ -1,7 +1,7 @@
-slacktivate
+prairie
 ===========
 
 .. toctree::
    :maxdepth: 4
 
-   slacktivate
+   prairie

@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath("../../src"))
 
 # -- Project information -----------------------------------------------------
 
-project = "slacktivate"
-copyright = "2020–{}, Jérémie Lumbroso".format(datetime.datetime.now().year).replace("2020–2020", "2020")
+project = "prairie"
+copyright = "2023–{}, Jérémie Lumbroso".format(datetime.datetime.now().year).replace("2023–2023", "2023")
 author = "Jérémie Lumbroso"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -28,19 +28,19 @@ author = "Jérémie Lumbroso"
 #
 # The short X.Y version.
 try:
-    import slacktivate
-    version = '.'.join(map(str, slacktivate.version_info[:2]))
-    release = slacktivate.__version__
+    import prairie
+    version = '.'.join(map(str, prairie.version_info[:2]))
+    release = prairie.__version__
 except ImportError:
     version = ''
     release = ''
 
 # Censor sensitive information before generating the docs
-try:
-    import slacktivate.slack.clients
-    slacktivate.slack.clients.SLACK_TOKEN = "<SLACK TOKEN>"
-except ImportError:
-    pass
+# try:
+#     import prairie.slack.clients
+#     prairie.slack.clients.SLACK_TOKEN = "<SLACK TOKEN>"
+# except ImportError:
+#     pass
 
 
 # -- General configuration ---------------------------------------------------

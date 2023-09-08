@@ -12,6 +12,6 @@ version: 2
 # of the use of TypedDict among other things)
 
 python:
-  version: 3.8
+  version: 3.11
   install:
     - requirements: requirements-dev.txt
