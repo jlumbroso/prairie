@@ -19,7 +19,7 @@ import slacktivate.helpers.dict_serializer
 import slacktivate.input.helpers
 
 
-__author__ = "Jérémie Lumbroso <lumbroso@cs.princeton.edu>"
+__author__ = "Jérémie Lumbroso <lumbroso@cis.upenn.edu>"
 
 __all__ = [
     "SlacktivateJSONEncoder",

@@ -18,7 +18,7 @@ import slacktivate.slack.clients
 import slacktivate.slack.methods
 
 
-__author__ = "Jérémie Lumbroso <lumbroso@cs.princeton.edu>"
+__author__ = "Jérémie Lumbroso <lumbroso@cis.upenn.edu>"
 
 __all__ = [
     "users_iterate",

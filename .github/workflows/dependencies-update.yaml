@@ -2,7 +2,7 @@
 # automatic processing that GitHub does, from a Poetry setup file, and
 # commit the requirements.txt to the repo
 #
-# Author: lumbroso@cs.princeton.edu
+# Author: lumbroso@cis.upenn.edu
 # See GitHub documentation: https://git.io/JJL7O
 
 name: "Update dependency file"
@@ -19,8 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9"]
-        poetry-version: ["1.1.15"]
+        python-version: ["3.11"]
+        poetry-version: ["1.6.1"]
         os: ["ubuntu-latest"]
     runs-on: ${{ matrix.os }}
     steps:

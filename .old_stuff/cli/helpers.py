@@ -18,7 +18,7 @@ import slacktivate.input.parsing
 import slacktivate.slack.clients
 
 
-__author__ = "Jérémie Lumbroso <lumbroso@cs.princeton.edu>"
+__author__ = "Jérémie Lumbroso <lumbroso@cis.upenn.edu>"
 
 __all__ = [
     "launch_repl",

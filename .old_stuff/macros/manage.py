@@ -15,7 +15,7 @@ import slacktivate.slack.classes
 import slacktivate.slack.methods
 
 
-__author__ = "Jérémie Lumbroso <lumbroso@cs.princeton.edu>"
+__author__ = "Jérémie Lumbroso <lumbroso@cis.upenn.edu>"
 
 __all__ = [
     "UserMergeOptionsType",

@@ -8,7 +8,7 @@ import slacktivate.input.helpers
 import slacktivate.input.parsing
 
 
-__author__ = "Jérémie Lumbroso <lumbroso@cs.princeton.edu>"
+__author__ = "Jérémie Lumbroso <lumbroso@cis.upenn.edu>"
 
 __all__ = [
 
