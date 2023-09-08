@@ -1,3 +1,5 @@
+import os
+import platform
 import sys
 
 import click
@@ -16,6 +18,18 @@ def set_log_level(ctx, param, value):
     level_name = level.name
     loguru.logger.info(f"Set log level to {level_name}")
     return level_value
+
+# New function to detect if the user is on Windows with WSL 2
+def is_wsl2():
+    flag = (os.sys.platform == 'linux' and "microsoft" in platform.uname().release.lower())
+    loguru.logger.debug(f"Detected WSL 2: {flag}")
+    return flag
+
+# New function to detect if the user is on MacOS with "Apple Silicon"
+def is_apple_silicon():
+    flag = (platform.system() == 'Darwin' and platform.machine() == 'arm64')
+    loguru.logger.debug(f"Detected Apple Silicon: {flag}")
+    return flag
 
 @click.group(cls=click_help_colors.HelpColorsGroup, help_headers_color='green', help_options_color='bright_yellow')
 @click.version_option(version=__version__, prog_name='prairie')

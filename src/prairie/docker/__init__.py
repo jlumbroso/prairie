@@ -102,6 +102,12 @@ def status():
     # Interpretation
     click.echo(click.style("\nInterpretation:", bold=True, fg="cyan"))
     click.echo("• Your PrairieLearn instance is currently running.")
-    click.echo("• You can access it at: " + click.style("https://localhost:3000", bold=True, fg="blue"))
+    if ports:
+        for _, port_bindings in ports.items():
+            for binding in port_bindings:
+                click.echo(f"• You can access it at: " + click.style(f"https://localhost:{binding['HostPort']}", bold=True, fg="blue"))
+    else:
+        click.echo("• No ports found for the running PrairieLearn instance.")
     click.echo("• The courses you've mounted are highlighted above in blue.")
+
 
