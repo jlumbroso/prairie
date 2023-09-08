@@ -1,6 +1,32 @@
-# `prairie` — the PrairieLearn command line client
+# Prairie CLI
 
-To be written...
+Prairie CLI is a command-line interface designed to streamline your PrairieLearn experience. Whether you're a course instructor, a content developer, or just someone looking to explore PrairieLearn, this tool offers utilities to make your journey smoother.
+
+## Features
+
+* Docker Integration: Easily manage PrairieLearn containers with built-in Docker commands.
+* Local Course Development: Test and develop your course content locally without the need for external setups.
+* Easy Updates: Keep your local PrairieLearn version up-to-date with simple commands.
+
+## Installation
+
+1. Dependencies: Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
+2. (Windows Users): It's recommended to use WSL 2 for optimal performance. Follow the [installation guide](https://learn.microsoft.com/en-us/windows/wsl/install) for WSL 2 and integrate it with Docker as described [here](https://docs.docker.com/desktop/windows/wsl/).
+3. Install Prairie CLI: (Installation steps for Prairie CLI would go here)
+
+## Usage
+
+Once installed, you can use the `prairie` command to access all features. Here are some common commands:
+
+* Launch PrairieLearn: `prairie docker launch --course-dir YOUR_COURSE_DIRECTORY`
+* Update PrairieLearn: `prairie docker update`
+* Check PrairieLearn Status: `prairie docker status`
+
+For a full list of commands and options, use `prairie --help`.
+
+## Contributing
+
+If you'd like to contribute to Prairie CLI, just make a pull request.
 
 ## License
 
