@@ -1,3 +1,6 @@
+# npm dependencies
+node_modules
+
 # Ignore testing files
 input/*
 output/*
