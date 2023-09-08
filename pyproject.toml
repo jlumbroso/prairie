@@ -1,36 +1,33 @@
 [tool.poetry]
-authors = ["Jérémie Lumbroso <lumbroso@cs.princeton.edu>"]
+authors = ["Jérémie Lumbroso <lumbroso@cis.upenn.edu>"]
 classifiers = [
   "Development Status :: 3 - Alpha",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
   "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
   "Topic :: Software Development :: Libraries :: Python Modules",
-  "Topic :: Office/Business",
 ]
-description = "Slacktivate is a Python library and Command-Line Interface to assist in the provisioning and management of a Slack workspace."
-homepage = "https://github.com/jlumbroso/slacktivate"
+description = "`prairie`: the PrairieLearn command line client"
+homepage = "https://github.com/jlumbroso/prairie"
 include = [
   "README.md",
 ]
 keywords = [
-  "Slack",
-  "user provisioning",
-  "Slack API",
-  "Slack SCIM API",
-  "Slack configuration",
+  "PrairieLearn",
+  "cli",
 ]
 license = "LGPL-3.0-or-later"
-name = "slacktivate"
+name = "prairie"
 readme = "README.md"
-repository = "https://github.com/jlumbroso/slacktivate"
-version = "0.2.26"
+repository = "https://github.com/jlumbroso/prairie"
+version = "0.0.1"
 
 [tool.tox]
 legacy_tox_ini = """
 [tox]
 isolated_build = true
-envlist = py{38,39}
+envlist = py{39,310,311}
 
 [testenv]
 requires =
@@ -41,33 +38,28 @@ commands =
 """
 
 [tool.poetry.dependencies]
-Pillow = "9.0.1" # PIL Software License (as of 2020-09-29)
 backoff = "^1.10.0" # MIT License (as of 2020-09-29)
 click = "^7.1.2" # BSD License (as of 2020-09-29)
 click-option-group = "^0.5.1" # BSD License (as of 2020-09-29)
 click_help_colors = "^0.8" # MIT License (as of 2020-09-29)
 click_spinner = "^0.1.10" # MIT License (as of 2020-09-29)
 comma = "^0.5.3" # LGPLv3 (as of 2020-09-29)
-ipython = {version = "^7.19.0", extras = ["ipython"]} 
 jinja2 = "^2.11.2" # BSD License (as of 2020-09-29)
 loguru = "^0.5.3" # MIT License (as of 2020-09-29)
-python = "^3.8" 
+python = "^3.11" 
 python-dotenv = "^0.14.0" # BSD License (as of 2020-09-29)
 pyyaml = "^5.3.1" # MIT License (as of 2020-09-29)
 requests = "^2.24.0" # Apache Software License (Apache 2.0) (as of 2020-09-29)
-slack-scim = "^1.1.0" # MIT License (as of 2020-09-29)
-slackclient = "^2.8.0" # MIT License (as of 2020-09-29)
 tqdm = "^4.49.0" # MPL 2.0 License (as of 2020-09-29)
-yaql = "^2.0.0" # Apache Software License (as of 2020-09-29)
 
 # need to pine these versions to avoid critical vulnerabilities
 MarkupSafe = "2.0.1" # BSD 3.0 License (as of 2019-02-23)
-aiohttp = "^3.7.4" # Apache Software License 2.0 (as of 2020-12-10)
 urllib3 = "^1.26.5" # MIT License (as of 2020-03-12)
 
 [tool.poetry.dev-dependencies]
 codecov = "^2.1.10" 
 doc8 = {version = "^0.8.1", optional = true} 
+ipython = {version = "^7.19.0", extras = ["ipython"]} 
 pytest = "^5.2" # MIT License (as of 2020-09-29)
 pytest-cov = "^2.10.1" 
 pytest-mock = "^3.3.1" 
@@ -81,7 +73,7 @@ tox = "^3.20.1"
 tox-poetry-dev-dependencies = "^0.0.5" 
 
 [tool.poetry.scripts]
-slacktivate = "slacktivate.cli.__main__:main"
+prairie = "prairie.cli.__main__:main"
 
 [build-system]
 build-backend = "poetry.masonry.api"
