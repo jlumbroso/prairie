@@ -12,7 +12,10 @@ Prairie CLI is a command-line interface designed to streamline your PrairieLearn
 
 1. Dependencies: Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
 2. (Windows Users): It's recommended to use WSL 2 for optimal performance. Follow the [installation guide](https://learn.microsoft.com/en-us/windows/wsl/install) for WSL 2 and integrate it with Docker as described [here](https://docs.docker.com/desktop/windows/wsl/).
-3. Install Prairie CLI: (Installation steps for Prairie CLI would go here)
+3. Install Prairie CLI:
+  ```bash
+  pip install prairie
+  ```
 
 ## Usage
 
